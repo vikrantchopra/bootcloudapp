@@ -2,10 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <title>Spring Security Example</title>
+        <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen" />
+    	<link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" media="screen" />
     </head>
     <body>
-        <h1>Welcome!</h1>
-
-        <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+        <div class="col-md-8">
+        <h2 style="text-align:center" class="blueColor">Welcome to the Bookshop Store</h2>
+		
+		<p style="padding: 10px; font-family:Comic Sans MS; font-size: 16px">
+			Looking for a good read! You have arrived at the right place. Browse through our immense collection of books and
+			find something suitable for you. Our collection is wide, varied and eclectic. The range of subjects that we cover 
+			hardly leaves out any subject under the sun. We have something for everyone, be it for a kid or for a teenager or a 
+			grownup. We have the hard-to-understand stuff for the scientific minds and science oriented, we have fun for the humorous.
+			 
+		</p>
+		<p style="padding: 10px; font-family:Comic Sans MS; font-size: 16px">
+			We always stock-up good for the curious minds, with our puzzles galore and mind bending challenges. Sit and relax,
+			sip a cup of fresh-brewed coffee, prop up your feet and enjoy a good read. Reading never goes out of fashion! Leave a comment
+			if you wish to. 
+		</p>
+		<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+	</div>
     </body>
 </html>
