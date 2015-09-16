@@ -46,7 +46,8 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public Book findById(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		Book aBook = this.bookRepository.findOne(id);
+		return aBook;
 	}
 
 }
