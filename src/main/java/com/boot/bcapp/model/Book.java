@@ -9,7 +9,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "book")
-public class Book {
+public class Book{
+	
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,13 +21,6 @@ public class Book {
     private String description;
     
     public Book() {}
-    
-    public Book(String isbn, String title, String author, String description) {
-    	this.isbn = isbn;
-    	this.title = title;
-    	this.author = author;
-    	this.description = description;
-    }
     
     @Column(name = "ISBN")
 	public String getIsbn() {
@@ -68,4 +62,8 @@ public class Book {
 	public Long getId() {
 		return id;
 	}
+	 
+	 public void setId(Long id) {
+		 this.id = id;
+	 }
 }

@@ -10,7 +10,7 @@ public interface BookService {
 	
 	public Iterable<Book> showBooklist();
 	
-	public Book updateBook(Book book);
+	//public Book updateBook(Book book);
 	
 	public Book findById(Long id);
 }
