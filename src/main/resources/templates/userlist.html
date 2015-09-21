@@ -22,22 +22,25 @@
 	<table border="1" class="table table-striped table-bordered table-hover" style="width:90%; margin-left: 5%;">
 		<thead>
 			<tr>
-				<th style="text-align:center">ISBN</th>
-				<th style="width: 200px;text-align:center">Title</th>
-				<th style="text-align:center">Author</th>
-				<th style="text-align:center">Description</th>
-				<th style="text-align:center">Action</th>
+				<th style="text-align:center">ID</th>
+				<th style="width: 200px;text-align:center">Email</th>
+				<th style="text-align:center">Username</th>
+				<th style="text-align:center">Password</th>
+				<th style="text-align:center">Role</th>
+				<th style="text-align:center">Version</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="book : ${books}">
+			<tr th:each="user : ${users}">
 				
-				<td th:text="${book.isbn}">1234</td>
-				<td th:text="${book.title}" style="width:25%">Cambridge</td>
-				<td th:text="${book.author}">Charles Darwin</td>
-				<td th:text="${book.description}">Evolution through billions of years</td>
+				<td th:text="${user.id}">1234</td>
+				<td th:text="${user.email}" style="width:25%">Cambridge</td>
+				<td th:text="${user.username}">Charles Darwin</td>
+				<td th:text="${user.password}">Evolution through billions of years</td>
+				<td th:text="${user.role}">Evolution through billions of years</td>
+				<td th:text="${user.version}">Evolution through billions of years</td>
 				
-				<td style="text-align: center;">
+				<!-- <td style="text-align: center;">
 					
 					<a class="btn btn-warning" href="#" data-th-href="@{/edit/{id}(id=${book.id})}">
   						<i class="fa fa-pencil"></i> Edit
@@ -45,23 +48,9 @@
 					<a class="btn btn-danger" href="#" data-th-href="@{/delete/{id}(id=${book.id},phase=stage)}" onClick="window.location.reload(true)">
   						<i class="fa fa-trash-o fa-lg"></i> Delete
   					</a>
-				</td>
+				</td> -->
 			</tr>
-			<tr data-th-remove="all">
-				<td>2</td>
-				<td>Iron Condor</td>
-				<td>High Prob Hedged</td>
-				<td>Science Fiction</td>
-				<td style="text-align: center;"><a href="#">
-						<button type="button" class="btn btn-default btn-xs">
-							<span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Edit
-						</button>
-				</a>&nbsp; <a href="#">
-						<button type="button" class="btn btn-default btn-xs">
-							<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Delete
-						</button>
-				</a></td>
-			</tr>
+			
 		</tbody>
 	</table>
 	

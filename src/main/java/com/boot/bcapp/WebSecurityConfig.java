@@ -10,11 +10,28 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 @Configuration
 @EnableWebMvcSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
+   
+//	@Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http
+//            .authorizeRequests()
+//                .antMatchers("/", "/home","/**/signup", "/**/signupSuccess").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//            .formLogin()
+//                .loginPage("/login")
+//                .permitAll()
+//                .and()
+//            .logout()
+//                .permitAll();
+//    }
+	
+	@Override
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
                 .antMatchers("/", "/home").permitAll()
+                .antMatchers("/user/signup", "/user/signupSuccess").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -31,4 +48,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER");
     }*/
+    
+    /*
+     *  http.authorizeRequests()
+            .antMatchers("/", "/public/**").permitAll()
+            .antMatchers("/users/**").hasAuthority("ADMIN")
+            .anyRequest().fullyAuthenticated()
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .failureUrl("/login?error")
+            .usernameParameter("email")
+            .permitAll()
+            .and()
+            .logout()
+            .logoutUrl("/logout")
+            .deleteCookies("remember-me")
+            .logoutSuccessUrl("/")
+            .permitAll()
+            .and()
+            .rememberMe();
+     * */
 }

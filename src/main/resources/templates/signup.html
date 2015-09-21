@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Spring Boot and Thymeleaf example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" media="screen" />
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" media="screen" />
+</head>
+<body>
+
+	<h3>User SignUp Form</h3>
+
+	<form class="form-horizontal" action="#" th:action="@{signupSuccess}" th:object="${user}" method="post">
+	
+		<input type="hidden" th:field="*{id}" />
+		<div class="form-group">
+			<label for="email" class="col-sm-2 control-label" th:text="#{user.email}">:</label>
+			<div class="col-sm-4">
+				<input id="email" type="text" th:field="*{email}" />
+			</div> 
+		</div>
+		<div class="form-group">
+			<label for="username" class="col-sm-2 control-label" th:text="#{user.username}">:</label>
+			<div class="col-sm-4">
+				<input id="username" type="text" th:field="*{username}" />
+			</div> 
+		</div>
+		<div class="form-group">
+			<label for="password" class="col-sm-2 control-label" th:text="#{user.password}">:</label>
+			<div class="col-sm-4">
+				<input id="password" type="text" th:field="*{password}" />
+			</div> 
+		</div>
+		<div class="form-group">
+			<label for="role" class="col-sm-2 control-label" th:text="#{user.role}">:</label>
+			<div class="col-sm-4">
+				<input id="role" type="text" th:field="*{role}" />
+			</div> 
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-4">
+				
+				<input type="submit" value="Save" class="btn btn-primary" style="margin-right: 10px"/>
+				<input type="reset" value="Reset" class="btn btn-default"/>
+			</div>
+		</div>
+	</form>
+	 <a th:href="@{/user/userlist}">Go to user list</a>
+</body>
+</html>

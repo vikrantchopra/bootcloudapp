@@ -7,6 +7,7 @@
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" media="screen" />
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
 </head>
 <body>
 
@@ -26,12 +27,18 @@
                 <li th:classappend="${page == 'home' ? 'active' : ''}"><a href="#" th:href="@{/}">Home</a></li>
                 <li th:classappend="${page == 'booklist' ? 'active' : ''}"><a href="/booklist" th:href="@{/book/booklist}">Booklist</a></li>
                 <li th:classappend="${page == 'comments' ? 'active' : ''}"><a href="/comments" th:href="@{/comments}">Comments</a></li>
-                <li th:classappend="${page == 'userlist' ? 'active' : ''}"><a href="/userlist" th:href="@{/userlist}">Userlist</a></li>
+                <li th:classappend="${page == 'userlist' ? 'active' : ''}"><a href="/userlist" th:href="@{/user/userlist}">Userlist</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login" th:href="@{/login}">Sign in</a></li>
-                <li sec:authorize="!isAuthenticated()"><a href="/logout" th:href="@{#}" onclick="$('#form').submit();">Logout</a></li>
-                
+                <!-- <li><a href="/login" th:href="@{/login}">Sign in</a></li> -->
+                <!-- <li sec:authorize="!isAuthenticated()"><a href="/logout" th:href="@{#}" onclick="$('#form').submit();">Logout</a></li> -->
+                <li th:if="${param.logout}">
+		            <a href="/login" th:href="@{/login}">Sign in</a>
+		        </li>
+                <li th:if="not ${param.logout}">
+		            <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">Logout</a>
+		        </li>
+		        <li><a href="/signup" th:href="@{/user/signup}"><i class="fa fa-user fa-fw"></i>Sign Up</a></li>
             </ul>
             <!-- <ul class="nav navbar-nav navbar-right">
                 <li th:if="${#authentication}? ${#authorization.expression('!isAuthenticated()')} : ${true}"><a href="/login" th:href="@{/login}">LOG IN</a></li>
