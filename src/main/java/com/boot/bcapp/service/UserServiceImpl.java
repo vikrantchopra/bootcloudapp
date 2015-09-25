@@ -25,4 +25,21 @@ public class UserServiceImpl implements UserService {
 		return this.userRepository.findAll();
 	}
 
+	@Override
+	public User getUserById(long id) {
+		return userRepository.findOne(id);
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		//return userRepository.findByUsername(email);
+		return this.userRepository.findByUsername(email); 
+	}
+
+	@Override
+	public User getUserByUsername(String username) {
+		// TODO Auto-generated method stub
+		return this.userRepository.findByUsername(username);
+	}
+
 }

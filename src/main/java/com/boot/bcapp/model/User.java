@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Entity
 @Table(name = "User")
 public class User {
@@ -16,8 +18,8 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Version
-	private Long version;
+	/*@Version
+	private Long version;*/
 
 	@Column(name = "username")
 	private String username;
@@ -29,6 +31,7 @@ public class User {
 	private String email;
 	
 	@Column(name = "Role")
+	//@Enumerated(EnumType.STRING)
 	private String role;
 
 	public String getUsername() {
@@ -40,11 +43,13 @@ public class User {
 	}
 
 	public String getPassword() {
-		return password;
+		//return PasswordCrypto.getInstance().encrypt(password);
+		return this.password;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		//this.password = password;
+		this.password = new BCryptPasswordEncoder().encode(password);
 	}
 
 	public String getEmail() {
@@ -71,13 +76,13 @@ public class User {
 		return id;
 	}
 
-	public void setVersion(Long version) {
+	/*public void setVersion(Long version) {
 		this.version = version;
 	}
 
 	public Long getVersion() {
 		return version;
-	}
+	}*/
 	
 	
 }

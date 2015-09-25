@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.boot.bcapp.model.Book;
 import com.boot.bcapp.service.BookService;
@@ -26,7 +27,7 @@ public class BookController {
 	@RequestMapping(value = "new")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
-	    return "bookForm";
+	    return "bookform";
 	}
 	
 	@RequestMapping(value = "addbook", method = RequestMethod.POST) 
@@ -48,4 +49,11 @@ public class BookController {
 		//model.addAttribute("books", this.bookService.showBooklist());
 		return "redirect:/book/booklist";
     }
+	
+	/*@RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String bookDelete(@RequestParam Long bookId) {
+		this.bookService.deleteBook(bookId);
+		//model.addAttribute("books", this.bookService.showBooklist());
+		return "redirect:booklist";
+    }*/
 }
